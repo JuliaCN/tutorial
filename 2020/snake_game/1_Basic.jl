@@ -81,6 +81,12 @@ m
 m[2,3]
 m[i[1], i[2]]
 
+# 看起来，CartesianIndex似乎并没有什么特殊的地方，
+# 不过 CartesianIndex 可以很方便地做坐标转换
+
+i + CartesianIndex(-1,-1)  # 把i分别向左和向上移动单位长
+m[i + CartesianIndex(-1,-1)]
+
 # 访问矩阵中的一块区域
 
 m[1,1:2]
