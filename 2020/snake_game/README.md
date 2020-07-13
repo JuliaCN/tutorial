@@ -4,6 +4,8 @@
 
 本教程适用于零基础用户，目的是让大家快速上手Julia，了解基本的语法，熟悉Julia的编程范式，并在此过程中熟悉Julia的包管理工具和日常开发流程。
 
+Inspired by: https://agrishchenko.wixsite.com/snakesai/rules
+
 ## 涵盖的知识点
 
 - REPL下的基本操作

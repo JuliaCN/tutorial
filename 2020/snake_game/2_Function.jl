@@ -71,7 +71,7 @@ board
 # 如：push!,pop!等
 # 我们也可以通过function关键字来编写自定义函数
 
-function move!(board, snake, direction)
+function step!(board, snake, direction)
     # 在这里实现具体的逻辑
 end
 
@@ -81,11 +81,11 @@ end
 # move 表示函数名，后面的括号里表示参数，分别我们要修改的界面,🐍和🐍的运行方向
 # 虽然这个函数什么都没做，但是我们可以尝试调用它，看看会发生什么
 
-move!(board, snake, UP)
+step!(board, snake, UP)
 board
 snake
 
-function move!(board, snake, direction)
+function step!(board, snake, direction)
     pushfirst!(snake, snake[1]+direction)
     tail = pop!(snake)
     board[tail] = FLOOR
@@ -93,23 +93,23 @@ function move!(board, snake, direction)
     board
 end
 
-move!(board, snake, UP);board
-move!(board, snake, LEFT);board
-move!(board, snake, DOWN);board
-move!(board, snake, RIGHT);board
+step!(board, snake, UP);board
+step!(board, snake, LEFT);board
+step!(board, snake, DOWN);board
+step!(board, snake, RIGHT);board
 
 # 问题来了
 # Q1: 如果遇到了❤，🐍的长度应该+1
 # Q2: 如果遇到了🐍自己的身体，那应该提示游戏结束
 # Q3：如果🐍遇到了边界
 #    a. 那么应该提示游戏结束
-#    b. 一些其它的游戏变种中，遇到边界会允许穿过
+#    b. 一些其它的游戏变种中，遇到边界会允许穿过 (这里我们没有定义边界，暂时实现这一种)
 # Q4: 吃掉❤之后，应该再随机生成一个
 
 # 为了更好地解决上面这些问题，我们新增加几个函数，用于更好地描述运行逻辑
 
 # 解决了Q1
-function move!(board, snake, direction)
+function step!(board, snake, direction)
     if grow!(board, snake, direction)  # 长度+1成功
         if board[snake[1]] != FOOD     # 没有吃到❤
             board[snake[1]] = SNAKE
@@ -127,7 +127,7 @@ end
 
 # 解决Q2, Q3
 function grow!(board, snake, direction)
-    next_head = snake[1]+direction
+    next_head = CartesianIndex(mod.((snake[1]+direction).I, axes(board)))
     if next_head in CartesianIndices(board) && board[next_head] != SNAKE
         pushfirst!(snake, next_head)
         true
