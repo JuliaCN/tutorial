@@ -1,6 +1,4 @@
-#####
-# API
-#####
+# 真！100行Julia代码实现带GUI的贪吃蛇
 using Makie
 
 mutable struct SnakeGame
