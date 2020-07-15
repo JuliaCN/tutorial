@@ -4,8 +4,6 @@
 
 本教程适用于零基础用户，目的是让大家快速上手Julia，了解基本的语法，熟悉Julia的编程范式，并在此过程中熟悉Julia的包管理工具和日常开发流程。
 
-Inspired by: https://agrishchenko.wixsite.com/snakesai/rules
-
 ## 涵盖的知识点
 
 - REPL下的基本操作
@@ -29,3 +27,5 @@ Inspired by: https://agrishchenko.wixsite.com/snakesai/rules
   - 设计算法自动执行
 
 ## 准备
+
+前往[北京外国语大学开源软件镜像站](https://mirrors.bfsu.edu.cn/help/julia-releases/)下载和安装最新版的Julia（建议v1.5及以上）。然后将本教程拷贝到本地，打开终端命令行，切换到本文件所在目录，然后执行Julia二进制文件，进入Julia的REPL。此过程中遇到任何问题可前往 [Julia中文社区](https://discourse.juliacn.com/) 发帖提问。

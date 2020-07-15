@@ -127,7 +127,8 @@ end
 
 # 解决Q2, Q3
 function grow!(board, snake, direction)
-    next_head = CartesianIndex(mod.((snake[1]+direction).I, axes(board)))
+    # next_head = CartesianIndex(mod.((snake[1]+direction).I, axes(board)))
+    next_head = snake[1]+direction
     if next_head in CartesianIndices(board) && board[next_head] != SNAKE
         pushfirst!(snake, next_head)
         true
